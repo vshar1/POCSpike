@@ -1,0 +1,4 @@
+packaging:
+  add:
+    - src/main/webapp
+tag: ${project.artifactId}:${project.version}
