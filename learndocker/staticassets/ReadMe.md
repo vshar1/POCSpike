@@ -11,7 +11,7 @@ docker run -d -p 8081:80 staticassets:1.0-SNAPSHOT
 
 #### To Test 
 
-http://192.168.99.100/
+curl http://192.168.99.100:8081
 
 
 In Mac this is your VM IP Address(DOCKER_HOST in bash_profile)
