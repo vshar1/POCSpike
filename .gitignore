@@ -1,3 +1,7 @@
+### Fitnesse template
+/testframework/fitnesseSpike/FitNesseRoot
+/testframework/fitnesseSpike/.idea
+
 ### Java template
 *.class
 
