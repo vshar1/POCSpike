@@ -1,0 +1,29 @@
+diff --git a/build.gradle b/build.gradle
+index 5077d63..a34cbde 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -170,7 +170,8 @@ jar {
+ 
+ task standaloneJar(type: Jar, dependsOn: jar) {
+   baseName = 'fitnesse'
+-  classifier = 'standalone'
++  classifier = 'custom'
++  version = ''
+   from {
+     (configurations.compile - configurations.optional).collect { zipTree(it) }
+   } {
+diff --git a/src/eg/Division.java b/src/eg/Division.java
+index a29bed4..493c559 100644
+--- a/src/eg/Division.java
++++ b/src/eg/Division.java
+@@ -8,7 +8,9 @@ public class Division extends ColumnFixture {
+   public double numerator;
+   public double denominator;
+ 
+-  public double quotient() {
++  public double quotient() throws Exception {
++    if(denominator==0)
++        throw new Exception("We cannot have denominator as Zero.");
+     return numerator / denominator;
+   }
+ 
