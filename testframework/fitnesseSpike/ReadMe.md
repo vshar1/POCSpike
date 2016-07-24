@@ -16,4 +16,4 @@ This is just a first try with fitnesse
 <img src="division.png"  width="950" height="300"> 
 
 ###Section 2###
-<img src="RunCommandLine.gif"  width="950" height="300"> 
+<img src="RunCommandLine.gif"  width="820" height="300"> 
