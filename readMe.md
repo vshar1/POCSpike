@@ -7,7 +7,7 @@
 [Fitnesse example](./testframework/fitnesseSpike)
 
 #### JUnit 
-[JUnit example](./testframework/junit)
+[JUnit example](./testframework/junit01)
     
 #### Docker - Learn how to dockerize 
     - Static-assets served from web server.
