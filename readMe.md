@@ -14,6 +14,4 @@
 
 2. [Dockerizing Node Rest service](./learndocker/nodejsExample)
 
-#### JUnit - 
-    - junit01 - Very basic stuff for initial setup usinh junit.
 
