@@ -1,1 +1,0 @@
-tag: ${project.artifactId}:${project.version}
