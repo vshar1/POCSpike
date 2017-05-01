@@ -1,7 +1,10 @@
 
-### Pre-requisite checkout a existing rest server java implementation 
+### This is a basic example to serve static assets using Nginx
 
-```1. docker build -t talk/static-asset:1.0 .```
+```1. cd static-assets```
+
+```2. docker build -t talk/static-asset:1.0 .```
+
 
 #### Run your docker image  
 ```2. docker run -d -p 8081:80 talk/static-asset:1.0```

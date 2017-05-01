@@ -10,9 +10,10 @@
 [JUnit example](./testframework/junit01)
     
 #### Docker - Learn how to dockerize 
-    - Static-assets served from web server.
-    - NodeJs app
-    - Java App
+1. [Basic example using Nginx dockerized Web Server ](./learndocker/nativebuilds/)
+
+2. [Dockerizing Node Rest service](./learndocker/nodejsExample)
 
 #### JUnit - 
     - junit01 - Very basic stuff for initial setup usinh junit.
+
