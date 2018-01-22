@@ -9,7 +9,7 @@
 #### Testing
 
 ##### Serenity
-[Serenity Example] (./serenity-spike)
+[Serenity Example](./serenity-spike)
 
 
 ##### JMeter
