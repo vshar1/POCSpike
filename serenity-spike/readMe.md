@@ -1,8 +1,9 @@
 #### Run Test and generate serenity Test Reports
 
-./gradlew clean test aggregate
+    gradlew clean test aggregate
 
-#### Reports location
+#### Reporting
+[Aggregate Report](./serenity-spike/target/site/serenity/index.html)
 
 
 
