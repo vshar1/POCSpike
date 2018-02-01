@@ -1,0 +1,34 @@
+
+= Gradle Tests Spike using dockerized chrome
+
+A simple demonstration of running a Gradle/Groovy tests with gradle docker plugin
+
+== Execute the Tests
+
+ ./gradlew clean test
+
+== Usage
+
+[listing]
+----
+$ cd docker-gradle-test-spike
+$ ./gradlew clean test
+
+  Pull the docker Image from the remote defined repo
+
+  Start the docker Image from the remote defined repo
+
+  Start executing the functional Tests i.e. Search on Google
+
+  TearDown the docker container
+
+----
+
+== Modules
+----
+Infrastructure/Selenium
+    Container the gradle-plugin script to pull images/start/stop the container
+
+Automation-Tests
+    Contains the sample gradle/groovy functional tests
+----

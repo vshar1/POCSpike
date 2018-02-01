@@ -1,0 +1,7 @@
+
+include 'automation-lib'
+include 'docs'
+include 'automation-tests'
+include 'infra-selenium'
+
+rootProject.name = 'docker-gradle-test-spike'
