@@ -1,0 +1,117 @@
+
+buildscript {
+    repositories { jcenter() }
+}
+
+plugins {
+    id 'com.bmuschko.docker-remote-api' version '3.2.1'
+}
+
+apply plugin: 'java'
+apply plugin: 'com.bmuschko.docker-remote-api'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenCentral()
+}
+
+import com.bmuschko.gradle.docker.tasks.image.Dockerfile
+
+def seleniumHubImage="selenium/hub"
+def seleniumHubImageVersion="3.8.1"
+
+def nodeChromeImage="selenium/node-chrome"
+def nodeChromeImageVersion="3.8.1"
+
+def chromeContainerName = "chrome"
+def hubContainerName = "selenium-hub"
+
+docker {
+    url = 'unix:///var/run/docker.sock'
+}
+
+import com.bmuschko.gradle.docker.tasks.image.DockerPullImage
+import com.bmuschko.gradle.docker.tasks.container.DockerCreateContainer
+import com.bmuschko.gradle.docker.tasks.container.DockerStartContainer
+import com.bmuschko.gradle.docker.tasks.container.DockerRemoveContainer
+import com.bmuschko.gradle.docker.tasks.container.DockerStopContainer
+
+
+task pullHubImage(type: DockerPullImage) {
+    println '===== Pulling Image ==>  '+seleniumHubImage+':'+seleniumHubImageVersion
+    repository = seleniumHubImage
+    tag = "$seleniumHubImageVersion"
+}
+
+task createHubContainer(type: DockerCreateContainer) {
+    containerName = hubContainerName
+    dependsOn pullHubImage
+    targetImageId { seleniumHubImage+':'+seleniumHubImageVersion }
+    portBindings = ['4444:4444']
+    exposePorts("tcp", [4444])
+}
+
+task startHubContainer(type: DockerStartContainer) {
+    dependsOn createHubContainer
+    targetContainerId { createHubContainer.getContainerId() }
+}
+
+task pullChromeImage(type: DockerPullImage) {
+    println '===== Pulling Image ==>  '+nodeChromeImage+':'+nodeChromeImageVersion
+    repository = nodeChromeImage
+    tag = "$nodeChromeImageVersion"
+}
+
+task createChromeContainer(type: DockerCreateContainer) {
+    dependsOn pullChromeImage
+    targetImageId { nodeChromeImage + ':' + nodeChromeImageVersion }
+    containerName = chromeContainerName
+    links = [hubContainerName+':hub']
+}
+
+task startChromeContainer(type: DockerStartContainer) {
+    dependsOn createChromeContainer
+    targetContainerId { createChromeContainer.getContainerId() }
+}
+
+task createTestInfrastructure() {
+    startChromeContainer.mustRunAfter(startHubContainer)
+    dependsOn startHubContainer, startChromeContainer
+}
+
+task stopChromeContainer(type: DockerStopContainer) {
+    targetContainerId { chromeContainerName }
+}
+
+task stopHubContainer(type: DockerStopContainer) {
+    targetContainerId { hubContainerName }
+}
+
+task stopContainer() {
+    stopHubContainer.mustRunAfter(stopChromeContainer)
+    dependsOn stopHubContainer, stopChromeContainer
+}
+
+task removeHubContainer(type: DockerRemoveContainer) {
+    targetContainerId { hubContainerName }
+    removeVolumes = true
+    force = true
+}
+
+task removeChromeContainer(type: DockerRemoveContainer) {
+    targetContainerId { chromeContainerName }
+    removeVolumes = true
+    force = true
+}
+
+task removeContainers() {
+    removeHubContainer.mustRunAfter(stopContainer)
+    removeHubContainer.mustRunAfter(removeChromeContainer)
+    dependsOn removeHubContainer, removeChromeContainer
+}
+
+task buildScriptDependencies(type: org.gradle.api.tasks.diagnostics.DependencyReportTask) {
+    configurations = project.buildscript.configurations
+}

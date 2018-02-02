@@ -1,0 +1,15 @@
+
+before_install: cp gradle.properties.default gradle.properties
+script:
+  - bash gradlew clean build
+  - bash gradlew pullImage
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
+# Grid url for Tests
+# webdriver.remote.url=http\://localhost\:4444/wd/hub
