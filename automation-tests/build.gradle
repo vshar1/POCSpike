@@ -1,0 +1,76 @@
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+
+buildscript {
+    repositories {
+
+    def ci=System.getProperty("ci")
+    if(ci!=null && ci.trim().length()>0)
+        {
+           // maven { url "<CORPORATE_REPO>" }
+        }else{
+            mavenCentral()
+            jcenter()
+        }
+    }
+
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:1.8.4")
+    }
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+task functionalTest(type: Test){
+    def environment_name=System.getProperty("env")
+    systemProperties = [
+            "env" : environment_name
+    ]
+
+    doFirst{
+        writePropertyDataForSerenity.execute()
+    }
+}
+
+task writePropertyDataForSerenity  {
+    println '================================================================'
+    println "Gradle version: " + project.getGradle().getGradleVersion()
+    println "Groovy version: " + GroovySystem.getVersion()
+    println 'QA-Automation Tags are: ' + System.getProperty("tags")
+    println '================================================================'
+
+    def tagValue=System.getProperty("tags")
+    writeTagToSerenityPropertyFile(tagValue)
+}
+
+private void writeTagToSerenityPropertyFile(def tagValue) {
+    if(tagValue==null || tagValue.trim().length()==0){
+        tagValue=''
+    }
+
+    ant.propertyfile(file: "$projectDir/serenity.properties") {
+        entry(key: "tags", value: tagValue)
+    }
+}
+
+dependencies {
+    testCompile "io.cucumber:cucumber-core:2.1.0"
+    testCompile "net.serenity-bdd:serenity-core:1.8.4"
+    testCompile "net.serenity-bdd:serenity-cucumber:1.6.4"
+    testCompile("junit:junit:4.12")
+}
+
+task buildScriptDependencies(type: org.gradle.api.tasks.diagnostics.DependencyReportTask) {
+    configurations = project.buildscript.configurations
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.3'
+}
+
+gradle.startParameter.continueOnFailure = true
