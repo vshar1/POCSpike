@@ -11,9 +11,32 @@
 * Install Maven [Maven](https://maven.apache.org/)
 * Install "natural plugin" using eclipse marketplace 
 
+## Generate fat jar file:
+
+Jar file containing all test features , stepdefinitions + All jar files dependencies
+Why fat jar
+- To run on CI environment in a air gap environment.
+- Faster builds in the pipeline as it will run i.e. java -jar myTests.jar
+
+Command
+
+`mvn clean package`
+
 ## Run tests:
+It will generate the fat jar & run the Tests locally (not using jar file)
 
 * `mvn clean verify`
+
+## Todo - Current Issue
+
+```When we run the Tests using jar file
+Got no path to feature directory or feature file
+
+
+0 Scenarios
+0 Steps
+0m0.001s
+```
 
 ## View HTML Report
 * HTML report will be generated once execution finish -bdd-cucumber\target\site\serenity
