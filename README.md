@@ -13,7 +13,8 @@
 
 ## Generate fat jar file:
 
-Jar file containing all test features , stepdefinitions + All jar files dependencies
+Jar file containing all test features , stepdefinitions + All jar files dependencies.
+
 Why fat jar
 - To run on CI environment in a air gap environment.
 - Faster builds in the pipeline as it will run i.e. java -jar myTests.jar
