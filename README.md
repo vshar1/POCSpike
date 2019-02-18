@@ -29,9 +29,9 @@ It will generate the fat jar & run the Tests locally (not using jar file)
 
 ## Todo - Current Issue
 
-```When we run the Tests using jar file
+```
+When we run the Tests using jar file
 Got no path to feature directory or feature file
-
 
 0 Scenarios
 0 Steps
