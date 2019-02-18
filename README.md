@@ -28,15 +28,12 @@ It will generate the fat jar & run the Tests locally (not using jar file)
 
 * `mvn clean verify`
 
-## Todo - Current Issue
+## Run Jar file - Current Issue
+
+  java -jar .\bdd-cucumber-1.0-SNAPSHOT-assembly.jar classpath:features/api --glue com.googleapi
 
 ```
-When we run the Tests using jar file
-Got no path to feature directory or feature file
-
-0 Scenarios
-0 Steps
-0m0.001s
+Though Tests do get executed but Serenity Fails to generate aggregate task when Tests fails i.e. index.html, though individual Tests html are generated.
 ```
 
 ## View HTML Report
