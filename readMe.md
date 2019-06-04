@@ -1,22 +1,14 @@
-## Training Sessions
+## DevOps toolkit Showcase
 
-#### Docker - Learn how to dockerize 
-1. [Basic example using Nginx dockerized Web Server ](./learndocker/nativebuilds/)
+## Deploy hello world microservice (NodeJs based) using 
+1. Ansible
+2. Terraform
 
-2. [Dockerizing Node Rest service](./learndocker/nodejsExample) 
+on 
+1. Windows 
+2. Unix
 
+## Check machine disk space of Windows & Unix host using
+1. Ansible
+2. Terraform
 
-#### Testing
-
-##### Serenity
-[Serenity Example](./serenity-spike)
-
-
-##### JMeter
-[JMeter load test for EBay](./jmeter-fun)
-
-##### Fitnesse
-[Fitnesse example](./testframework/fitnesseSpike)
-
-##### JUnit
-[JUnit example](./testframework/junit01)
