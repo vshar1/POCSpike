@@ -4,10 +4,10 @@
 
 ### Build 
 
-```docker build -t talk/nodejsexample:1.0 .```
+```docker build -t showcase:1.0 .```
 
 #### Run your docker image  
-```docker run -d -p 9080:9080 talk/nodejsexample:1.0```
+```docker run -d -p 9080:9080 showcase:1.0```
 
 #### To Test 
 
