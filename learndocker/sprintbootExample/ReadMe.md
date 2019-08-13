@@ -12,6 +12,10 @@ Make a DockerImage
 
 ```3. curl http://localhost:8081```
 
-4. Lan
-    - Get your IP : ```ifconfig | grep "inet " | grep -v 127.0.0.1```
-    - ```curl http://<YourIP>:8081```
+
+#### Troubleshooting to get your Docker VM IP
+
+To get your IP :
+```ifconfig | grep "inet " | grep -v 127.0.0.1```
+
+```curl http://<YourIP>:8081```
