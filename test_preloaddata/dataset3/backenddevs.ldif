@@ -1,0 +1,29 @@
+# Users
+dn: uid=george,ou=users,dc=mydomain,dc=com
+objectClass: inetOrgPerson
+uid: george
+sn: George
+cn: George User
+userPassword: password
+
+dn: uid=harry,ou=users,dc=mydomain,dc=com
+objectClass: inetOrgPerson
+uid: harry
+sn: Harry
+cn: Harry User
+userPassword: password
+
+dn: uid=irina,ou=users,dc=mydomain,dc=com
+objectClass: inetOrgPerson
+uid: irina
+sn: Irina
+cn: Irina User
+userPassword: password
+
+# Group
+dn: cn=backenddevs,ou=groups,dc=mydomain,dc=com
+objectClass: groupOfNames
+cn: backenddevs
+member: uid=george,ou=users,dc=mydomain,dc=com
+member: uid=harry,ou=users,dc=mydomain,dc=com
+member: uid=irina,ou=users,dc=mydomain,dc=com

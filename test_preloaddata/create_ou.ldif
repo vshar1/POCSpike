@@ -1,0 +1,7 @@
+dn: ou=users,dc=mydomain,dc=com
+objectClass: organizationalUnit
+ou: users
+
+dn: ou=groups,dc=mydomain,dc=com
+objectClass: organizationalUnit
+ou: groups

@@ -68,3 +68,5 @@ crashlytics-build.properties
 target
 data/
 node_modules/
+
+ldap_*

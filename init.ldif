@@ -1,0 +1,85 @@
+# Users
+dn: uid=amanda,ou=users,dc=mydomain,dc=com
+objectClass: inetOrgPerson
+uid: amanda
+sn: Amanda
+cn: Amanda User
+userPassword: password
+
+dn: uid=benny,ou=users,dc=mydomain,dc=com
+objectClass: inetOrgPerson
+uid: benny
+sn: Benny
+cn: Benny User
+userPassword: password
+
+dn: uid=chloe,ou=users,dc=mydomain,dc=com
+objectClass: inetOrgPerson
+uid: chloe
+sn: Chloe
+cn: Chloe User
+userPassword: password
+
+dn: uid=danny,ou=users,dc=mydomain,dc=com
+objectClass: inetOrgPerson
+uid: danny
+sn: Danny
+cn: Danny User
+userPassword: password
+
+dn: uid=ellis,ou=users,dc=mydomain,dc=com
+objectClass: inetOrgPerson
+uid: ellis
+sn: Ellis
+cn: Ellis User
+userPassword: password
+
+dn: uid=fin,ou=users,dc=mydomain,dc=com
+objectClass: inetOrgPerson
+uid: fin
+sn: Fin
+cn: Fin User
+userPassword: password
+
+dn: uid=george,ou=users,dc=mydomain,dc=com
+objectClass: inetOrgPerson
+uid: george
+sn: George
+cn: George User
+userPassword: password
+
+dn: uid=harry,ou=users,dc=mydomain,dc=com
+objectClass: inetOrgPerson
+uid: harry
+sn: Harry
+cn: Harry User
+userPassword: password
+
+dn: uid=irina,ou=users,dc=mydomain,dc=com
+objectClass: inetOrgPerson
+uid: irina
+sn: Irina
+cn: Irina User
+userPassword: password
+
+# Groups
+dn: cn=teamlead,ou=groups,dc=mydomain,dc=com
+objectClass: groupOfNames
+cn: teamlead
+member: uid=amanda,ou=users,dc=mydomain,dc=com
+member: uid=benny,ou=users,dc=mydomain,dc=com
+member: uid=chloe,ou=users,dc=mydomain,dc=com
+
+dn: cn=frontdevs,ou=groups,dc=mydomain,dc=com
+objectClass: groupOfNames
+cn: frontdevs
+member: uid=danny,ou=users,dc=mydomain,dc=com
+member: uid=ellis,ou=users,dc=mydomain,dc=com
+member: uid=fin,ou=users,dc=mydomain,dc=com
+
+dn: cn=backenddevs,ou=groups,dc=mydomain,dc=com
+objectClass: groupOfNames
+cn: backenddevs
+member: uid=george,ou=users,dc=mydomain,dc=com
+member: uid=harry,ou=users,dc=mydomain,dc=com
+member: uid=irina,ou=users,dc=mydomain,dc=com
