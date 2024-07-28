@@ -77,7 +77,7 @@ docker run --rm -it -v $(pwd):/app -e LDAP_SERVER=ldap://$LDAP_SERVER ldap_searc
 
 Here is a demo of how it works:
 
-![Demo GIF](images/Ldap_spike.gif)
+<img src="images/Ldap_spike.gif" width="1200" style="max-width: 100%; height: auto;" alt="Demo GIF">
 
 ### 8. Shutdown and cleanup all data
 ```
