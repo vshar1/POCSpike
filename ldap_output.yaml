@@ -1,0 +1,12 @@
+cn=backenddevs,ou=groups,dc=mydomain,dc=com:
+- uid=george,ou=users,dc=mydomain,dc=com
+- uid=harry,ou=users,dc=mydomain,dc=com
+- uid=irina,ou=users,dc=mydomain,dc=com
+cn=frontdevs,ou=groups,dc=mydomain,dc=com:
+- uid=danny,ou=users,dc=mydomain,dc=com
+- uid=ellis,ou=users,dc=mydomain,dc=com
+- uid=fin,ou=users,dc=mydomain,dc=com
+cn=teamlead,ou=groups,dc=mydomain,dc=com:
+- uid=amanda,ou=users,dc=mydomain,dc=com
+- uid=benny,ou=users,dc=mydomain,dc=com
+- uid=chloe,ou=users,dc=mydomain,dc=com
