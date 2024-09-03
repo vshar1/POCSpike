@@ -1,4 +1,4 @@
-# LDAP docker spike
+# LDAP docker spike.
 
 ## 1.  Bootup the local LDAP docker container
 ```
